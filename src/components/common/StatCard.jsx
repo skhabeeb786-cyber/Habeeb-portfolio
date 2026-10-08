@@ -14,19 +14,19 @@ export default function StatCard({
 }) {
   return (
     <div
-      className={`group relative p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:-translate-y-1 ${
+      className={`group relative p-4 sm:p-5 rounded-2xl transition-all duration-300 hover:-translate-y-1.5 cursor-default ${
         dark
-          ? 'bg-slate-900/90 border border-slate-800 hover:border-blue-500/60 shadow-lg'
+          ? 'bg-slate-900/90 border border-slate-800 hover:border-blue-500/60 hover:shadow-glow-sm'
           : 'bg-white border border-slate-200/90 hover:border-blue-400 shadow-premium hover:shadow-premium-hover'
       } ${className}`}
     >
-      {/* Top glowing accent line */}
+      {/* Top glowing accent line with gradient animation */}
       <div className="absolute top-0 left-4 right-4 h-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 opacity-0 group-hover:opacity-100 rounded-b-full transition-opacity duration-300" />
 
       <div className="flex items-start justify-between">
         <div>
-          <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight ${
-            dark ? 'text-white' : 'text-slate-900'
+          <div className={`text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight transition-colors ${
+            dark ? 'text-white group-hover:text-blue-300' : 'text-slate-900 group-hover:text-blue-600'
           }`}>
             <AnimatedCounter
               target={value}
@@ -50,10 +50,10 @@ export default function StatCard({
         </div>
 
         {Icon && (
-          <div className={`p-2 rounded-xl shrink-0 ${
+          <div className={`p-2 rounded-xl shrink-0 transition-transform duration-300 group-hover:scale-110 ${
             dark
-              ? 'bg-blue-500/15 text-blue-400 border border-blue-500/25'
-              : 'bg-blue-50 text-blue-600 border border-blue-100'
+              ? 'bg-blue-500/15 text-blue-400 border border-blue-500/25 group-hover:bg-blue-600 group-hover:text-white'
+              : 'bg-blue-50 text-blue-600 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white'
           }`}>
             <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>

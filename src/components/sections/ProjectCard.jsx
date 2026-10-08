@@ -14,17 +14,17 @@ export default function ProjectCard({ project, onSelect }) {
   const { title, client, category, summary, services, url, visualType } = project;
 
   return (
-    <div className="group rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 hover:border-blue-400 shadow-sm hover:shadow-premium transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1">
+    <div className="group rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 hover:border-blue-400 shadow-sm hover:shadow-premium-hover transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1.5 cursor-default">
       
       {/* CARD TOP: Realistic Visual Mockup */}
       <div className="relative aspect-[16/10] bg-slate-950 p-4 sm:p-5 flex flex-col justify-center overflow-hidden border-b border-slate-100">
         
-        {/* Glow backdrop */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/30 to-purple-900/30 -z-10" />
+        {/* Glow backdrop with subtle shift on hover */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/30 via-indigo-950/20 to-purple-900/30 group-hover:opacity-100 opacity-60 transition-opacity duration-500 -z-10" />
 
         {/* Case 1: Browser Mockup for Website Design */}
         {visualType === 'browserMockup' && (
-          <div className="w-full h-full rounded-xl sm:rounded-2xl bg-slate-900 border border-slate-800 shadow-xl flex flex-col overflow-hidden group-hover:scale-[1.01] transition-transform duration-300">
+          <div className="w-full h-full rounded-xl sm:rounded-2xl bg-slate-900 border border-slate-800 shadow-xl flex flex-col overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
             <div className="h-7 sm:h-8 bg-slate-950 border-b border-slate-800 px-3 flex items-center justify-between text-xs text-slate-400">
               <div className="flex items-center space-x-1.5">
                 <span className="w-2 h-2 rounded-full bg-red-500" />
@@ -34,7 +34,7 @@ export default function ProjectCard({ project, onSelect }) {
               <div className="px-2.5 py-0.5 rounded bg-slate-900 text-[10px] sm:text-xs text-slate-300 font-mono truncate max-w-[160px] sm:max-w-[200px] border border-slate-800">
                 boostyourmemory.in
               </div>
-              <Globe className="w-3.5 h-3.5 text-slate-500" />
+              <Globe className="w-3.5 h-3.5 text-slate-500 group-hover:rotate-45 transition-transform duration-500" />
             </div>
 
             <div className="flex-1 p-3.5 sm:p-4 bg-gradient-to-b from-slate-900 to-indigo-950/70 flex flex-col justify-between">
@@ -45,8 +45,8 @@ export default function ProjectCard({ project, onSelect }) {
                   </div>
                   <span className="text-xs sm:text-sm font-bold text-white tracking-tight">Boost Your Memory</span>
                 </div>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-medium">
-                  Live
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 font-medium flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" /> Live
                 </span>
               </div>
 
@@ -72,7 +72,7 @@ export default function ProjectCard({ project, onSelect }) {
 
         {/* Case 2: Social Media Content Wall */}
         {visualType === 'socialWall' && (
-          <div className="w-full h-full rounded-xl sm:rounded-2xl bg-slate-900 border border-slate-800 shadow-xl p-3 flex flex-col justify-between group-hover:scale-[1.01] transition-transform duration-300">
+          <div className="w-full h-full rounded-xl sm:rounded-2xl bg-slate-900 border border-slate-800 shadow-xl p-3 flex flex-col justify-between group-hover:scale-[1.02] transition-transform duration-500">
             <div className="flex items-center justify-between text-xs text-slate-300 border-b border-slate-800 pb-2">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-gradient-to-tr from-pink-500 to-indigo-500 flex items-center justify-center text-white text-[10px] font-bold">
@@ -84,7 +84,7 @@ export default function ProjectCard({ project, onSelect }) {
             </div>
 
             <div className="grid grid-cols-3 gap-2 py-1.5">
-              <div className="aspect-[4/5] rounded-lg bg-gradient-to-tr from-indigo-900 to-purple-900 p-2 flex flex-col justify-between border border-slate-800">
+              <div className="aspect-[4/5] rounded-lg bg-gradient-to-tr from-indigo-900 to-purple-900 p-2 flex flex-col justify-between border border-slate-800 hover:border-purple-400/50 transition-colors">
                 <span className="text-[9px] font-bold text-white/90">Carousel</span>
                 <div className="text-[8px] text-slate-300">Strategy</div>
                 <div className="flex items-center gap-1 text-[8px] text-red-400 font-semibold">
@@ -92,7 +92,7 @@ export default function ProjectCard({ project, onSelect }) {
                 </div>
               </div>
 
-              <div className="aspect-[4/5] rounded-lg bg-gradient-to-tr from-blue-900 to-cyan-900 p-2 flex flex-col justify-between border border-slate-800">
+              <div className="aspect-[4/5] rounded-lg bg-gradient-to-tr from-blue-900 to-cyan-900 p-2 flex flex-col justify-between border border-slate-800 hover:border-cyan-400/50 transition-colors">
                 <span className="text-[9px] font-bold text-cyan-300">Reels</span>
                 <div className="text-[8px] text-slate-300">Shorts</div>
                 <div className="flex items-center gap-1 text-[8px] text-blue-400 font-semibold">
@@ -100,7 +100,7 @@ export default function ProjectCard({ project, onSelect }) {
                 </div>
               </div>
 
-              <div className="aspect-[4/5] rounded-lg bg-gradient-to-tr from-slate-800 to-violet-950 p-2 flex flex-col justify-between border border-slate-800">
+              <div className="aspect-[4/5] rounded-lg bg-gradient-to-tr from-slate-800 to-violet-950 p-2 flex flex-col justify-between border border-slate-800 hover:border-pink-400/50 transition-colors">
                 <span className="text-[9px] font-bold text-pink-300">Promo</span>
                 <div className="text-[8px] text-slate-300">Ad Set</div>
                 <div className="flex items-center gap-1 text-[8px] text-emerald-400 font-semibold">
@@ -111,14 +111,16 @@ export default function ProjectCard({ project, onSelect }) {
 
             <div className="flex items-center justify-between text-[10px] text-slate-400 pt-1 font-medium">
               <span>IG &bull; FB &bull; LinkedIn</span>
-              <span className="text-emerald-400 font-semibold">High Engagement</span>
+              <span className="text-emerald-400 font-semibold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" /> High Engagement
+              </span>
             </div>
           </div>
         )}
 
         {/* Case 3: Meta Ads & Lead Gen Dashboard */}
         {visualType === 'adsDashboard' && (
-          <div className="w-full h-full rounded-xl sm:rounded-2xl bg-slate-900 border border-slate-800 shadow-xl p-3 flex flex-col justify-between group-hover:scale-[1.01] transition-transform duration-300">
+          <div className="w-full h-full rounded-xl sm:rounded-2xl bg-slate-900 border border-slate-800 shadow-xl p-3 flex flex-col justify-between group-hover:scale-[1.02] transition-transform duration-500">
             <div className="flex items-center justify-between text-xs border-b border-slate-800 pb-2">
               <div className="flex items-center gap-1.5">
                 <MetaIcon className="w-3.5 h-3.5 text-blue-400" />
@@ -130,15 +132,15 @@ export default function ProjectCard({ project, onSelect }) {
             </div>
 
             <div className="grid grid-cols-3 gap-2 py-1.5">
-              <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-center">
+              <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-center hover:border-emerald-500/40 transition-colors">
                 <span className="text-[10px] text-slate-400 block font-medium">Leads</span>
                 <span className="text-sm font-bold text-emerald-400">630+</span>
               </div>
-              <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-center">
+              <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-center hover:border-blue-500/40 transition-colors">
                 <span className="text-[10px] text-slate-400 block font-medium">Avg CPL</span>
                 <span className="text-sm font-bold text-white">₹19.85</span>
               </div>
-              <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-center">
+              <div className="p-2 rounded-lg bg-slate-950 border border-slate-800 text-center hover:border-purple-500/40 transition-colors">
                 <span className="text-[10px] text-slate-400 block font-medium">Conv.</span>
                 <span className="text-sm font-bold text-blue-400">5.0%</span>
               </div>
@@ -177,7 +179,7 @@ export default function ProjectCard({ project, onSelect }) {
             {services.slice(0, 4).map((svc, i) => (
               <span
                 key={i}
-                className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium"
+                className="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors"
               >
                 {svc}
               </span>
@@ -205,7 +207,7 @@ export default function ProjectCard({ project, onSelect }) {
               href={url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-sm transition-all"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-sm hover:shadow hover:scale-105 transition-all"
             >
               <span>Visit Site</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -213,7 +215,7 @@ export default function ProjectCard({ project, onSelect }) {
           ) : (
             <button
               onClick={() => onSelect(project)}
-              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium transition cursor-pointer"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-medium hover:scale-105 transition-all cursor-pointer"
             >
               <span>Details</span>
             </button>

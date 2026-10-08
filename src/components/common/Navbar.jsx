@@ -41,13 +41,13 @@ export default function Navbar({ activeSection = 'home' }) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo with Clean, Proportionate Typography */}
+        {/* Brand Logo with Clean, Proportionate Typography & Hover Pulse */}
         <a
           href="#home"
           onClick={(e) => handleLinkClick(e, '#home')}
           className="flex items-center space-x-2.5 sm:space-x-3 group cursor-pointer"
         >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold text-sm sm:text-base shadow-sm group-hover:scale-105 transition-all">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center text-white font-extrabold text-sm sm:text-base shadow-sm group-hover:scale-105 group-hover:shadow-glow-sm transition-all">
             HH
           </div>
           <div>
@@ -60,7 +60,7 @@ export default function Navbar({ activeSection = 'home' }) {
           </div>
         </a>
 
-        {/* Desktop Nav - Clean text-xs / text-sm */}
+        {/* Desktop Nav with Hover Glides */}
         <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
           {navLinks.map((link) => {
             const isActive = activeSection === link.id;
@@ -77,19 +77,19 @@ export default function Navbar({ activeSection = 'home' }) {
               >
                 {link.label}
                 {isActive && (
-                  <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-blue-600 rounded-full" />
+                  <span className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-blue-600 rounded-full animate-pulse" />
                 )}
               </a>
             );
           })}
         </nav>
 
-        {/* Desktop CTA */}
+        {/* Desktop CTA with Shimmer */}
         <div className="hidden md:flex items-center space-x-3">
           <a
             href="#contact"
             onClick={(e) => handleLinkClick(e, '#contact')}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-xs sm:text-sm shadow-glow hover:shadow-indigo-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+            className="btn-shimmer inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-xs sm:text-sm shadow-glow hover:shadow-indigo-500/50 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
           >
             <span>Let's Work Together</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -135,7 +135,7 @@ export default function Navbar({ activeSection = 'home' }) {
               <a
                 href="#contact"
                 onClick={(e) => handleLinkClick(e, '#contact')}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-sm shadow-glow text-center"
+                className="btn-shimmer w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold text-sm shadow-glow text-center"
               >
                 <span>Let's Work Together</span>
                 <ArrowRight className="w-4 h-4" />

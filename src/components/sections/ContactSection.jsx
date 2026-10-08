@@ -78,8 +78,8 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-16 sm:py-24 lg:py-28 bg-slate-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none -z-10">
-        <div className="absolute top-1/4 right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-blue-600/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-10 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-purple-600/10 blur-[120px] rounded-full" />
+        <div className="absolute top-1/4 right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-blue-600/10 blur-[120px] rounded-full animate-pulse-slow" />
+        <div className="absolute bottom-10 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-purple-600/10 blur-[120px] rounded-full animate-float-slow" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,7 +96,7 @@ export default function ContactSection() {
           
           {/* LEFT: Contact Information & Direct Channels */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-950 border border-slate-800 space-y-5">
+            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-950 border border-slate-800 space-y-5 hover:border-slate-700 transition-colors">
               <h3 className="text-lg sm:text-xl font-bold text-white">
                 Contact Information
               </h3>
@@ -107,9 +107,9 @@ export default function ContactSection() {
               <div className="space-y-3 pt-1">
                 <a
                   href={`mailto:${personal.email}`}
-                  className="flex items-center gap-3.5 p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 transition-colors group"
+                  className="flex items-center gap-3.5 p-3 rounded-xl bg-slate-900 hover:bg-slate-800/90 border border-slate-800 hover:border-blue-500/50 text-slate-200 transition-all hover:translate-x-1 group"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div className="truncate min-w-0">
@@ -122,9 +122,9 @@ export default function ContactSection() {
 
                 <a
                   href={`tel:${personal.phone.replace(/\s+/g, '')}`}
-                  className="flex items-center gap-3.5 p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 transition-colors group"
+                  className="flex items-center gap-3.5 p-3 rounded-xl bg-slate-900 hover:bg-slate-800/90 border border-slate-800 hover:border-emerald-500/50 text-slate-200 transition-all hover:translate-x-1 group"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                     <Phone className="w-4 h-4" />
                   </div>
                   <div>
@@ -151,9 +151,9 @@ export default function ContactSection() {
                   href={personal.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-3.5 p-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 transition-colors group"
+                  className="flex items-center gap-3.5 p-3 rounded-xl bg-slate-900 hover:bg-slate-800/90 border border-slate-800 hover:border-blue-500/50 text-slate-200 transition-all hover:translate-x-1 group"
                 >
-                  <div className="w-9 h-9 rounded-lg bg-blue-600/10 text-blue-400 flex items-center justify-center shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-blue-600/10 text-blue-400 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                     <LinkedInIcon className="w-4 h-4" />
                   </div>
                   <div className="truncate min-w-0">
@@ -174,7 +174,7 @@ export default function ContactSection() {
 
           {/* RIGHT: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-950 border border-slate-800 shadow-xl">
+            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-950 border border-slate-800 shadow-xl hover:border-slate-700 transition-colors">
               <h3 className="text-lg sm:text-xl font-bold text-white mb-1.5">
                 Send a Message
               </h3>
@@ -299,7 +299,7 @@ export default function ContactSection() {
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-glow transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="btn-shimmer w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-glow hover:shadow-indigo-500/50 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   {status === 'loading' ? (
                     <>
